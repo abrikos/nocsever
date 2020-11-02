@@ -143,8 +143,7 @@ export default function (props) {
                     <Form validated={false} onSubmit={submit} key={model.id} onChange={() => setEdited(true)} className="form-model">
                         {edited && <Button type="submit">Сохранить</Button>}
                         <div className="admin-form-fields">
-                            {schema.fields.map(f => <InputModel key={f.name} modelName={modelName} model={model}
-                                                                field={f} errors={errors} store={props.store}/>)}
+                            {schema.fields.map(f => <InputModel key={f.name} modelName={modelName} model={model} field={f} errors={errors} store={props.store}/>)}
                         </div>
                         {edited && <Button type="submit">Сохранить</Button>}
                     </Form>
