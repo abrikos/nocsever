@@ -7,7 +7,10 @@ const passportLib = require('server/lib/passport');
 
 
 module.exports.controller = function (app) {
-
+    Mongoose.User.create({name:'zzz'})
+        .then(()=>{
+            Mongoose.User.find().then(console.log)
+        })
     app.post('/api/admin/users', passportLib.isAdmin, (req, res) => {
         Mongoose.User.find()
             .then(r => res.send(r))
