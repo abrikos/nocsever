@@ -77,7 +77,6 @@ server.on('upgrade', function (request, socket, head) {
 });
 
 
-
 //
 // Start the server.
 //

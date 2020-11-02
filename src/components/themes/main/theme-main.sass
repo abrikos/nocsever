@@ -1,0 +1,53 @@
+@import "components/themes/params"
+.theme-main
+  h2
+    margin: 20px 0
+  //padding-top: 50px
+  .page
+    .top-image
+      overflow: hidden
+      width: 100%
+      max-height: 300px
+
+      img
+        position: relative
+        top: -550px
+        width: 100%
+
+  .content
+    @media screen and (min-width: $min-width)
+      width: 1200px
+      margin: auto
+
+  a
+    color: $blue-color
+
+  .blue-box
+    background-color: $blue-color
+    color: whitesmoke
+
+    a
+      color: whitesmoke
+
+
+  .partners
+    display: flex
+    @media screen and (max-width: $min-width)
+      flex-wrap: wrap
+    align-content: baseline
+
+    a
+      margin: auto
+
+      img
+        max-width: 100px
+        max-height: 100px
+
+footer
+  margin: 20px 0
+  padding: 20px
+  border-top: 1px solid silver
+
+  img
+    margin: 20px
+    height: 70px

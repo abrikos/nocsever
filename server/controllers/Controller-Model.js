@@ -8,7 +8,7 @@ module.exports.controller = function (app) {
 
 
     function getSchema(name) {
-        if(!Mongoose[name]) {
+        if (!Mongoose[name]) {
             console.log('Wrong model', name)
             return {}
         }
@@ -114,7 +114,7 @@ module.exports.controller = function (app) {
     async function list(req, filter, isAdmin, cb) {
 
         const list = await Mongoose[req.params.model].find(filter)
-            .collation({ locale: "ru" })
+            .collation({locale: "ru"})
             .sort(req.body.sort || req.body.order || {createdAt: -1})
             .limit(parseInt(req.body.limit))
             .skip(parseInt(req.body.skip))
@@ -126,19 +126,19 @@ module.exports.controller = function (app) {
     app.post('/api/:model/list', (req, res) => {
         const filter = bodyToWhere(req.body);
         list(req, filter, false)
-            .then(d=>res.send(d))
+            .then(d => res.send(d))
     });
 
     app.post('/api/:model/method/:name', (req, res) => {
         Mongoose[req.params.model][req.params.name](req.body, req.session.userId)
-            .then(d=>res.send(d))
+            .then(d => res.send(d))
     });
 
     app.post('/api/:model/list/my', passportLib.isLogged, (req, res) => {
         const filter = bodyToWhere(req.body);
         filter.user = req.session.userId
         list(req, filter, true)
-            .then(d=>res.send(d))
+            .then(d => res.send(d))
     });
 
 
@@ -182,7 +182,7 @@ module.exports.controller = function (app) {
 
                 }
                 r.save()
-                    .then(r2=> {
+                    .then(r2 => {
                         res.send(r2)
                     });
             })

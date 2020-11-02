@@ -23,7 +23,7 @@ const modelSchema = new Schema({
     });
 
 
-modelSchema.statics.population =['quizzes']
+modelSchema.statics.population = ['quizzes']
 
 modelSchema.virtual('date')
     .get(function () {

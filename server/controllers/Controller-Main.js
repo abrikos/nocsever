@@ -5,7 +5,6 @@ const mailer = JSON.parse(process.env.mailer);
 const transport = nodemailer.createTransport(mailer)
 const passportLib = require('server/lib/passport');
 const passport = require('passport');
-const logger = require('logat');
 //let Parser = require('rss-parser');
 //let parser = new Parser();
 const fs = require('fs');
@@ -33,7 +32,7 @@ module.exports.controller = function (app) {
             from: mailer.auth.user,
             to: "Anrsya@mail.ru",
             subject: "Обращение в общественную приёмную президента АН РС(Я)",
-            text: req.body.name + ':\n\n' + options[req.body.option] +'\n\n' +  req.body.text,
+            text: req.body.name + ':\n\n' + options[req.body.option] + '\n\n' + req.body.text,
             attachments: [{path: `./${file}`}]
         };
         transport.sendMail(message, (err) => {
@@ -75,7 +74,7 @@ module.exports.controller = function (app) {
             site: process.env.SITE,
             botName: process.env.BOT_NAME,
             vkId: process.env.VK_ID,
-            googleId:process.env.GOOGLE_ID,
+            googleId: process.env.GOOGLE_ID,
         })
     });
 

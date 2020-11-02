@@ -14,9 +14,6 @@ const cors = require('cors');
 const fs = require('fs');
 
 
-
-
-
 app.use(cors())
 //app.use(fileUpload());
 app.use(passport.initialize());
@@ -47,13 +44,10 @@ app.use(cookieParser());
 
 
 fs.readdirSync(__dirname + '/controllers').forEach(function (file) {
-    if(file.substr(-3) === '.js') {
+    if (file.substr(-3) === '.js') {
         require(__dirname + '/controllers/' + file).controller(app);
     }
 });
-
-
-
 
 
 module.exports = app;

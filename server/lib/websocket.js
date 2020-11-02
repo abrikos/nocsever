@@ -6,7 +6,7 @@ require('dotenv').config();
 export default function websocket(wss) {
     console.log('ws port', wss.options.port);
 
-    function adapt(obj){
+    function adapt(obj) {
         return JSON.stringify(obj)
     }
 
@@ -14,19 +14,19 @@ export default function websocket(wss) {
         //console.log('CONNECTED');
         ws.on('message', function incoming(received) {
             let data;
-            try{
+            try {
                 data = JSON.parse(received);
-            }catch (e) {
+            } catch (e) {
                 return ws.send(adapt({error: e.error}));
             }
             console.log(data)
-            data.xxx= new Date();
+            data.xxx = new Date();
             ws.send(adapt(data))
-            sendAll({br:444444})
+            sendAll({br: 444444})
         });
     });
 
-    function sendAll (message) {
+    function sendAll(message) {
         wss.clients.forEach(function each(client) {
             if (client.readyState === WebSocket.OPEN) {
                 client.send(adapt(message));

@@ -40,7 +40,7 @@ modelSchema.formOptions = {
     searchFields: ['header'],
 }
 
-modelSchema.statics.fromUrl = async function({url}, user){
+modelSchema.statics.fromUrl = async function ({url}, user) {
     const ogsP = util.promisify(ogs)
     const r = await ogsP({url})
     return await this.create({user, imgUrl: r.ogImage.url, header: r.ogTitle, text: r.ogDescription, published: true, url})

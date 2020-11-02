@@ -1,0 +1,37 @@
+@import "components/themes/params"
+.direction-full
+  .direction-img
+    width: 100%
+
+.directions-list
+
+  //display: flex
+
+
+  .direction-item
+    margin: auto
+    padding: 5px
+    position: relative
+    @media screen and (min-width: $min-width)
+      height: 500px
+      width: 700px
+    overflow: hidden
+
+
+    .dir-wrap
+      z-index: -100000
+
+      img:hover
+        transform: scale(1.1)
+        transition: .5s
+        transform-origin: center
+
+      a
+        font-size: 2em
+        text-shadow: 1px 1px 2px black, 0 0 1em black
+        margin: 10px
+        color: white
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)

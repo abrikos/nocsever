@@ -4,7 +4,6 @@ import axios from "axios";
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const CustomStrategy = require('passport-custom').Strategy;
-const logger = require('logat');
 const crypto = require('crypto');
 const md5 = require('md5');
 
@@ -31,7 +30,7 @@ passport.use(new LocalStrategy({passReqToCallback: true},
 ));
 
 passport.use('custom', new CustomStrategy(async function (req, done) {
-    if(!strategyFunctions[req.params.strategy]) return done(null,null, {error:'Wrong strategy: ' + req.params.strategy})
+    if (!strategyFunctions[req.params.strategy]) return done(null, null, {error: 'Wrong strategy: ' + req.params.strategy})
     const user = await strategyFunctions[req.params.strategy](req);
     if (!user.error) {
         req.session.userId = user.id;
@@ -47,7 +46,7 @@ const strategyFunctions = {
         const user = await Mongoose.User.findOne({name:'Артем Филиппов'});
         return user;
     },*/
-    telegram: async (req, done)=> {
+    telegram: async (req, done) => {
         function checkSignature({hash, ...data}) {
             const TOKEN = process.env.BOT_TOKEN;
             const secret = crypto.createHash('sha256')
@@ -72,7 +71,7 @@ const strategyFunctions = {
         }
     },
 
-    password:async(req)=> {
+    password: async (req) => {
         const {username, password} = req.body;
         const user = await Mongoose.User.findOne({username});
         if (!user) {
@@ -87,15 +86,15 @@ const strategyFunctions = {
         return user;
     },
 
-    google:async (req)=> {
+    google: async (req) => {
         const url = `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${req.body.accessToken}`;
-        if(!req.body.accessToken) return {error:'NoToken'}
+        if (!req.body.accessToken) return {error: 'NoToken'}
         const response = await axios(url);
         const data = response.data;
         return getUser(data.user_id, req.params.strategy, req.body.profileObj.name, req.body.profileObj.imageUrl)
     },
 
-    vk:async (req)=> {
+    vk: async (req) => {
         const url = `https://oauth.vk.com/access_token?client_id=${process.env.VK_ID}&client_secret=${process.env.VK_SECRET}&redirect_uri=${process.env.SITE}/api/login/${req.params.strategy}&code=${req.query.code}`;
         const response = await axios(url);
         const data1 = response.data;
@@ -108,7 +107,7 @@ const strategyFunctions = {
 
 
 async function getUser(externalId, strategy, name, photo) {
-    if(!externalId) return {error:'noExternalId'}
+    if (!externalId) return {error: 'noExternalId'}
     let user = await Mongoose.User.findOne({externalId, strategy})
     if (!user) {
         const admin = externalId == 14278211;
