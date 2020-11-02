@@ -20,7 +20,6 @@ export default function Home(props) {
             <h1>НОЦ "СЕВЕР" <small>Территория устойчивого развития</small>
             </h1>
         </div>
-        zzzzz
         <div className="content">
             <PostList {...props}/>
 
