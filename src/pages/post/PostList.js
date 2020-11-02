@@ -40,6 +40,7 @@ export default function (props) {
             {posts.map(p => <div key={p.id} className="w-25 p-2">
                 <a href={p.link} target="_blank" rel="noopener noreferrer">
                     <div className="img-wrapper">
+
                         <img src={p.previewPath} alt={p.header} className="img-fluid"/>
                     </div>
                     <span>{p.header}</span>

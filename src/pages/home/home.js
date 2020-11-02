@@ -21,7 +21,6 @@ export default function Home(props) {
             </h1>
         </div>
         <div className="content">
-
             <PostList {...props}/>
 
             <div className="block">

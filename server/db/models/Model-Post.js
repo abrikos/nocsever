@@ -11,7 +11,7 @@ const Schema = mongoose.Schema;
 const modelSchema = new Schema({
         header: {type: String, label: 'Заголовок'},
         text: {type: String, label: 'Текст', control: 'markdown'},
-        imgUrl: {type: String},
+        imgUrl: {type: String, label:'Ссылка на картинку'},
         url: {type: String, label: 'Адрес на сайте СМИ'},
         isMarkdown: {type: Boolean, label: 'Markdown', default: true},
         editable: Boolean,
@@ -41,9 +41,13 @@ modelSchema.formOptions = {
 }
 
 modelSchema.statics.fromUrl = async function ({url}, user) {
-    const ogsP = util.promisify(ogs)
-    const r = await ogsP({url})
+    const r = this.urlMeta(url)
     return await this.create({user, imgUrl: r.ogImage.url, header: r.ogTitle, text: r.ogDescription, published: true, url})
+}
+
+modelSchema.statics.urlMeta = async function (url) {
+    const ogsP = util.promisify(ogs)
+    return await ogsP({url})
 }
 
 modelSchema.virtual('date')
@@ -78,7 +82,7 @@ modelSchema.virtual('shareData')
 
 modelSchema.virtual('link')
     .get(function () {
-        if (this.isMassMedia) return this.url || '/';
+        if (this.url) return this.url;
         return `/post/` + this.id + '/' + (this.header ? transliterate(this.header).replace(/[^a-zA-Z0-9]/g, '-') : '')
     });
 

@@ -7,6 +7,8 @@ const passportLib = require('server/lib/passport');
 
 
 module.exports.controller = function (app) {
+    Mongoose.post.urlMeta('https://nauka.tass.ru/nauka/6770258')
+        .then(console.log)
     /*Mongoose.User.create({name:'zzz'})
         .then(()=>{
             Mongoose.User.find().then(console.log)
