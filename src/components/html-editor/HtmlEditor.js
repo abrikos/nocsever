@@ -49,12 +49,12 @@ export default function HtmlEditor(props) {
                 props.onChange(true)
                 console.log({event, editor, data});
             }}
-            onBlur={(event, editor) => {
+            /*onBlur={(event, editor) => {
                 //console.log( 'Blur.', editor );
             }}
             onFocus={(event, editor) => {
                 //console.log( 'Focus.', editor );
-            }}
+            }}*/
         />
     </div>
 }

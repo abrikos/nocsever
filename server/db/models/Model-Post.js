@@ -11,7 +11,7 @@ const Schema = mongoose.Schema;
 const modelSchema = new Schema({
         header: {type: String, label: 'Заголовок'},
         text: {type: String, label: 'Текст', control: 'markdown'},
-        imgUrl: {type: String, label:'Ссылка на картинку'},
+        imgUrl: {type: String, label: 'Ссылка на картинку'},
         url: {type: String, label: 'Адрес на сайте СМИ'},
         isMarkdown: {type: Boolean, label: 'Markdown', default: true},
         editable: Boolean,

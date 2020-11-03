@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react';
+import Store from "Store"
 import Pager from "components/Pager";
 import Loader from "components/Loader";
 
-export default function (props) {
+export default function PostLIst(props) {
     /*this.propTypes = {
         filter: PropTypes.object,
     };*/
@@ -11,7 +12,7 @@ export default function (props) {
     const [totalCount, setTotalCount] = useState();
     const [filter, setFilter] = useState(props.filter);
 
-    useEffect(init, []);
+    useEffect(init, [filter, props]);
 
     function init() {
         const f = filter ? Object.assign(filter, {}) : {where: {}};
@@ -21,8 +22,7 @@ export default function (props) {
         f.skip = 0;
         if (!props.isAdmin) f.where.published = true;
         setFilter(f);
-        console.log(JSON.stringify(f))
-        props.store.api('/post/list', f).then(res => {
+        Store.api('/post/list', f).then(res => {
             console.log(res)
             setPosts(res.list)
             setTotalCount(res.count);
@@ -30,7 +30,7 @@ export default function (props) {
     }
 
     function pageChange(f) {
-        props.store.api('/post/list', f).then(res => setPosts(res.list));
+        Store.api('/post/list', f).then(res => setPosts(res.list));
     }
 
     if (!posts) return <Loader/>

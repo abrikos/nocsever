@@ -1,4 +1,4 @@
-import directions from "pages/directions/text-directions";
+import directions from "pages/directions/directions-text";
 import MarkDown from "react-markdown";
 import React from "react";
 import "./directions.sass"
@@ -24,6 +24,7 @@ export default function Direction(props) {
             <div>
                 <div><MarkDown source={t.text}/></div>
             </div>
+
         </div>
     </div>
 }

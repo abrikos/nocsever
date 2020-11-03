@@ -3,7 +3,7 @@ import "./image-modal.sass"
 
 export default function ImageModal(props) {
     const [modal, setModal] = useState(false);
-    const [modalImage, setModalImage] = useState();
+    //const [modalImage, setModalImage] = useState();
     const toggle = () => setModal(!modal);
 
 

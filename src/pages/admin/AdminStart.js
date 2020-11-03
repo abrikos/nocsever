@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function AdminStart(props) {
+export default function AdminStart() {
 
     return <div>
         Администрирование

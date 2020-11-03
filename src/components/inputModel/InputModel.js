@@ -24,7 +24,7 @@ export default function InputModel(props) {
         const filter = {order: {}}
         filter.sort = props.field.options.sort;
         console.log(props.field.options.ref.toLowerCase(), filter)
-        props.store.api(`/${props.field.options.ref.toLowerCase()}/list`, filter)
+        Store.api(`/${props.field.options.ref.toLowerCase()}/list`, filter)
             .then(res => setList(res.list))
             .catch(console.error)
     }
@@ -34,8 +34,7 @@ export default function InputModel(props) {
         {!!props.errors[props.field.name] && <Form.Control.Feedback type="invalid">zzzz</Form.Control.Feedback>}
     </span>
 
-    if (props.field.options.select) input = <Form.Control name={props.field.name} defaultValue={props.model[props.field.name]}
-                                                          invalid={!!props.errors[props.field.name]} type="select">
+    if (props.field.options.select) input = <Form.Control name={props.field.name} defaultValue={props.model[props.field.name]} type="select">
         <option></option>
         {props.field.options.select.map((v, i) => <option key={i} value={v.value || i}>{v.label || v}</option>)}
     </Form.Control>
@@ -44,8 +43,7 @@ export default function InputModel(props) {
     if (props.field.type === 'Boolean') input =
         <input type="checkbox" name={props.field.name} defaultChecked={props.model[props.field.name]} className="m-2"/>
     if (props.field.options.control === 'markdown') {
-        input = <MarkdownEditor invalid={!!props.errors[props.field.name]} name={props.field.name}
-                                value={props.model[props.field.name]}/>
+        input = <MarkdownEditor name={props.field.name} value={props.model[props.field.name]}/>
     }
 
     if (props.field.options.ref && list.length > 0) {

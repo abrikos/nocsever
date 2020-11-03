@@ -1,28 +1,29 @@
 import React, {useEffect, useState} from "react";
 import {Button} from "react-bootstrap";
+import Store from "Store";
 
-export default function AdminUser(props) {
+export default function AdminUser() {
     const [users, setUsers] = useState([])
 
     useEffect(init, [])
 
     function init() {
-        props.store.api('/admin/users').then(setUsers);
+        Store.api('/admin/users').then(setUsers);
     }
 
     function setAdmin(user) {
         user.admin = !user.admin;
-        props.store.api(`/admin/user/${user._id}/change-admin`);
+        Store.api(`/admin/user/${user._id}/change-admin`);
     }
 
     function setEditor(user) {
         user.editor = !user.editor;
-        props.store.api(`/admin/user/${user._id}/change-editor`);
+        Store.api(`/admin/user/${user._id}/change-editor`);
     }
 
     function deleteUser(user) {
         if (!window.confirm('Удалить юзера?')) return;
-        props.store.api('/admin/user/delete', user)
+        Store.api('/admin/user/delete', user)
             .then(() => {
                 setUsers(users.filter(u => u.id !== user.id))
             })

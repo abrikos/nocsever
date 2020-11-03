@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react";
+import Store from "Store"
 import {Button, Form} from "react-bootstrap";
 import {A, navigate} from "hookrouter";
 import FileUpload from "components/file-list/FileUpload";
@@ -7,7 +8,7 @@ import InputModel from "components/inputModel/InputModel";
 import Pager from "components/Pager";
 
 
-export default function (props) {
+export default function AdminModel(props) {
     const [edited, setEdited] = useState(false);
     const [schema, setSchema] = useState();
     const [totalCount, setTotalCount] = useState(0);
@@ -18,32 +19,33 @@ export default function (props) {
     console.log(props)
     const modelName = props.control;
 
-    useEffect(init, [props.id, modelName]);
+    useEffect(init, [props, modelName]);
 
     function init() {
-        props.store.api(`/${modelName}/schema`)
+        Store.api(`/${modelName}/schema`)
             .then(s => {
                 setModel(null)
                 setSchema(s);
                 setFilter(s)
+                console.log('zzUUcc', s)
                 const f = {limit: 10}
                 f.order = s.formOptions.listOrder;
                 console.log(f)
                 getList(f);
-                if (props.id) props.store.api(`/${modelName}/${props.id}/view`).then(setModel)
+                if (props.id) Store.api(`/${modelName}/${props.id}/view`).then(setModel)
             })
     }
 
     function getList(f) {
         setFilter(f)
-        props.store.api(`/${modelName}/list`, f).then(res => {
+        Store.api(`/${modelName}/list`, f).then(res => {
             setList(res.list)
             setTotalCount(res.count)
         })
     }
 
     function create() {
-        props.store.api(`/admin/${modelName}/create`)
+        Store.api(`/admin/${modelName}/create`)
             .then(model => {
                 navigate(model.adminLink)
             })
@@ -62,7 +64,7 @@ export default function (props) {
         setErrors({});
         if (model.id) {
             console.log(form)
-            props.store.api(`/admin/${modelName}/${model.id}/update`, form)
+            Store.api(`/admin/${modelName}/${model.id}/update`, form)
                 .then(() => {
                     getList(filter);
                     setEdited(false)
@@ -74,12 +76,12 @@ export default function (props) {
     }
 
     function uploadDone(files) {
-        props.store.api(`/admin/${modelName}/${model.id}/files/add`, {files})
+        Store.api(`/admin/${modelName}/${model.id}/files/add`, {files})
             .then(setModel)
     }
 
     function setPreview(img) {
-        props.store.api(`/admin/${modelName}/${model.id}/file-preview/${img.id}`)
+        Store.api(`/admin/${modelName}/${model.id}/file-preview/${img.id}`)
             .then(setModel)
     }
 
@@ -102,7 +104,7 @@ export default function (props) {
 
     function deleteModel() {
         if (!window.confirm(`Удалить ${schema.formOptions.label}?`)) return;
-        props.store.api(`/admin/${modelName}/${model.id}/delete`).then(() => {
+        Store.api(`/admin/${modelName}/${model.id}/delete`).then(() => {
             setModel(null)
             getList(filter)
         })

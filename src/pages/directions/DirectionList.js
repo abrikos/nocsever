@@ -1,9 +1,9 @@
-import directions from "pages/directions/text-directions";
+import directions from "pages/directions/directions-text";
 import React from "react";
 import {A} from "hookrouter"
 import "./directions.sass"
 
-export default function DirectionList(props) {
+export default function DirectionList() {
 
     function DrawDirectionShort(p) {
         const t = directions[p.field]
@@ -21,7 +21,7 @@ export default function DirectionList(props) {
     return <div className="content">
         <h2>Направления</h2>
         <div className="directions-list">
-            {Object.keys(directions).map((k, i) => <DrawDirectionShort key={k} field={k}/>)}
+            {Object.keys(directions).map((k) => <DrawDirectionShort key={k} field={k}/>)}
         </div>
     </div>
 }

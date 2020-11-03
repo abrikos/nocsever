@@ -13,8 +13,10 @@ export default function MenuTop(props) {
             <div className="menu-cross text-right">x</div>
             <div className={"menu-items"}>
                 <div className="menu-item"><A href="/">Начало</A></div>
+                <div className="menu-item"><A href="/regions">Регионы</A></div>
                 <div className="menu-item"><A href="/directions">Направления</A></div>
                 {props.store.authenticatedUser && props.store.authenticatedUser.admin && <div className="menu-item"><A href="/admin">ADM</A></div>}
+                {props.store.authenticatedUser && <div className="menu-item"><A href="/cabinet">Кабинет</A></div>}
                 {props.store.authenticatedUser && <div className="menu-item"><A href="/logout">Выход</A></div>}
             </div>
         </label>
