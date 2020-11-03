@@ -43,7 +43,6 @@ export default function InputModel(props) {
 
     if (props.field.type === 'Boolean') input =
         <input type="checkbox" name={props.field.name} defaultChecked={props.model[props.field.name]} className="m-2"/>
-    console.log('zzzzzzzzzzzzz', props.field)
     if (props.field.options.control === 'markdown') {
         input = <MarkdownEditor invalid={!!props.errors[props.field.name]} name={props.field.name}
                                 value={props.model[props.field.name]}/>
