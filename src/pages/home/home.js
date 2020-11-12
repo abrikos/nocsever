@@ -4,6 +4,9 @@ import PostList from "pages/post/PostList";
 import MarkDown from "react-markdown";
 import documents from "pages/home/text-documents";
 import comments from "pages/home/text-comments";
+import Partners from "pages/home/Partners";
+import Documents from "pages/documents/Documents";
+import Territory from "pages/home/Territory";
 /*
 https://academia.interfax.ru/ru/news/articles/2900/
 https://nauka.tass.ru/nauka/6770258
@@ -21,12 +24,11 @@ export default function Home(props) {
             </h1>
         </div>
         <div className="content">
-            <PostList {...props}/>
+            <Territory/>
+            <Partners/>
 
-            <div className="block">
-                <h2>Документы</h2>
-                <MarkDown source={documents}/>
-            </div>
+
+            <PostList {...props}/>
 
             <div className="comments">
                 <h2>Отзывы</h2>

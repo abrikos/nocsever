@@ -8,12 +8,14 @@ import ErrorPage from "components/service/ErrorPage";
 import AdminIndex from "pages/admin/AdminIndex";
 import Login from "components/login/login";
 import Cabinet from "pages/cabinet/cabinet";
+import Documents from "pages/documents/Documents";
 
 export default function Routes(store) {
     const routes = {
         "/": () => <Home store={store}/>,
         "/news": () => <PostList key={'news'} title="Новости" modelName="post" filter={{order: {createdAt: -1}}} store={store}/>,
         "/directions": () => <DirectionList store={store}/>,
+        "/documents": () => <Documents store={store}/>,
         "/directions/:field": (params) => <Direction {...params} store={store}/>,
         "/login": () => <Login store={store}/>,
 
