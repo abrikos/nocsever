@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import Store from "Store"
 import Pager from "components/Pager";
 import Loader from "components/Loader";
+import "./post.sass"
 
 export default function PostLIst(props) {
     /*this.propTypes = {
@@ -36,11 +37,10 @@ export default function PostLIst(props) {
     if (!posts) return <Loader/>
     return <div className="post-list">
         <h2>Новости</h2>
-        <div className="d-flex flex-wrap">
-            {posts.map(p => <div key={p.id} className="w-25 p-2">
+        <div className="d-sm-flex flex-wrap">
+            {posts.map(p => <div key={p.id} className="post-small">
                 <a href={p.link} target="_blank" rel="noopener noreferrer">
                     <div className="img-wrapper">
-
                         <img src={p.previewPath} alt={p.header} className="img-fluid"/>
                     </div>
                     <span>{p.header}</span>

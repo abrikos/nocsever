@@ -1,10 +1,10 @@
 import React from "react";
 
-export default function Territory(){
+export default function Regions(){
     return <div>
-        <h2>Территория НОЦ</h2>
-        <div className="d-flex map-container">
-            <div><img src="/map.svg" alt="Карта регионов"/></div>
+        <h2>Регионы НОЦ</h2>
+        <div className="d-sm-flex map-container">
+            <div><img src="/map.svg" alt="Карта регионов" className="img-fluid"/></div>
             <div>
                 <dl>
                     <dt>Общая площадь (65,3% территории ДФО)</dt>

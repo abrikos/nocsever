@@ -20,7 +20,7 @@
    inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"><metadata
    id="metadata296"><rdf:RDF><cc:Work
        rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
-         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><sodipodi:namedview
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title /></cc:Work></rdf:RDF></metadata><sodipodi:namedview
    pagecolor="#ffffff"
    bordercolor="#666666"
    borderopacity="1"
@@ -34,9 +34,9 @@
    id="namedview294"
    showgrid="false"
    units="px"
-   inkscape:zoom="1.6819304"
-   inkscape:cx="362.44308"
-   inkscape:cy="349.67204"
+   inkscape:zoom="1.1893044"
+   inkscape:cx="382.29365"
+   inkscape:cy="320.50239"
    inkscape:window-x="0"
    inkscape:window-y="1051"
    inkscape:window-maximized="1"
@@ -496,78 +496,91 @@
    class="fil11 fnt0"
    y="11855.88"
    x="6124.6602">Pb</text>
+
 <text
    style="font-weight:normal;font-size:275.11999512px;font-family:'Franklin Gothic Demi Cond';fill:#2b2a29"
    id="text144"
    class="fil11 fnt0"
    y="11877.89"
    x="6534.0898">Zn</text>
+
 <text
    style="font-weight:normal;font-size:275.11999512px;font-family:'Franklin Gothic Demi Cond';fill:#2b2a29"
    id="text146"
    class="fil11 fnt0"
    y="12132.39"
    x="6724.4399">Cu</text>
+
 <text
    style="font-weight:normal;font-size:275.11999512px;font-family:'Franklin Gothic Demi Cond';fill:#2b2a29"
    id="text148"
    class="fil11 fnt0"
    y="12393.77"
    x="6676.29">Bi</text>
+
 <text
    style="font-weight:normal;font-size:275.11999512px;font-family:'Franklin Gothic Demi Cond';fill:#2b2a29"
    id="text150"
    class="fil11 fnt0"
    y="12600.55"
    x="6304.48">Cd</text>
+
 <text
    style="font-weight:normal;font-size:275.11999512px;font-family:'Franklin Gothic Demi Cond';fill:#2b2a29"
    id="text152"
    class="fil11 fnt0"
    y="12411.11"
    x="5986.52">Ag</text>
+
 <text
    style="font-weight:normal;font-size:275.11999512px;font-family:'Franklin Gothic Demi Cond';fill:#2b2a29"
    id="text154"
    class="fil11 fnt0"
    y="12144.77"
    x="5952.4502">Au</text>
+
 <text
    style="font-weight:normal;font-size:275.11999512px;font-family:'Franklin Gothic Demi Cond';fill:#2b2a29"
    id="text156"
    class="fil11 fnt0"
    y="12205.83"
    x="9919.6201">Au</text>
+
 <text
    style="font-weight:normal;font-size:275.11999512px;font-family:'Franklin Gothic Demi Cond';fill:#2b2a29"
    id="text158"
    class="fil11 fnt0"
    y="11168.83"
    x="11765.92">Au</text>
+
 <text
    style="font-weight:normal;font-size:275.11999512px;font-family:'Franklin Gothic Demi Cond';fill:#2b2a29"
    id="text160"
    class="fil11 fnt0"
    y="12487.85"
    x="9582.5703">Sb</text>
+
 <text
    style="font-weight:normal;font-size:275.11999512px;font-family:'Franklin Gothic Demi Cond';fill:#2b2a29"
    id="text162"
    class="fil11 fnt0"
    y="11450.85"
    x="11428.87">Sb</text>
+
 <text
    style="font-weight:normal;font-size:275.11999512px;font-family:'Franklin Gothic Demi Cond';fill:#2b2a29"
    id="text164"
    class="fil11 fnt0"
    y="15211.72"
    x="9114.8398">Au</text>
+
 <text
    style="font-weight:normal;font-size:275.11999512px;font-family:'Franklin Gothic Demi Cond';fill:#2b2a29"
    id="text166"
    class="fil11 fnt0"
    y="8300.9502"
    x="12020.51">Au</text>
+
 <g
    id="g172">
     <circle
@@ -760,16 +773,18 @@
    class="fil12 fnt1"
    y="7444.5669"
    x="13800.45"><tspan
-     style="-inkscape-font-specification:'DejaVu Sans Mono';font-family:'DejaVu Sans Mono';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal"
+     style="-inkscape-font-specification:Arial;font-family:Arial;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal"
      id="tspan418">Анадырь</tspan></text>
+
 <text
    style="font-weight:normal;font-size:434.93612671px;font-family:'Franklin Gothic Demi Cond';fill:#fefefe;stroke-width:0.73114485"
    id="text244"
    class="fil12 fnt1"
    y="12228.244"
    x="12146.706"><tspan
-     style="-inkscape-font-specification:'DejaVu Sans Mono';font-family:'DejaVu Sans Mono';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal"
+     style="-inkscape-font-specification:Arial;font-family:Arial;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal"
      id="tspan410">Магадан</tspan></text>
+
 <g
    id="g250">
     <polygon
@@ -782,7 +797,10 @@
    id="text248"
    class="fil12 fnt1"
    y="13817.56"
-   x="8502.1396">Якутск</text>
+   x="8502.1396"><tspan
+     style="-inkscape-font-specification:Arial;font-family:Arial;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal"
+     id="tspan969">Якутск</tspan></text>
+
 
    </g><text
    style="font-weight:normal;font-size:357.98495483px;font-family:'Franklin Gothic Demi Cond';fill:#fefefe;stroke-width:0.74341685"
@@ -790,24 +808,27 @@
    class="fil12 fnt2"
    y="12652.754"
    x="15047.037"><tspan
-     style="-inkscape-font-specification:'DejaVu Sans Mono';font-family:'DejaVu Sans Mono';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal"
+     style="-inkscape-font-specification:Arial;font-family:Arial;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal"
      id="tspan412">Петропавловск</tspan></text>
+
 <text
    style="font-weight:normal;font-size:357.98495483px;font-family:'Franklin Gothic Demi Cond';fill:#fefefe;stroke-width:0.74341685"
    id="text254"
    class="fil12 fnt2"
    y="13058.646"
    x="15047.037"><tspan
-     style="-inkscape-font-specification:'DejaVu Sans Mono';font-family:'DejaVu Sans Mono';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal"
+     style="-inkscape-font-specification:Arial;font-family:Arial;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal"
      id="tspan414">- Камчатский</tspan></text>
+
 <text
    style="font-weight:normal;font-size:435.46411133px;font-family:'Franklin Gothic Demi Cond';fill:#fefefe;stroke-width:0.73203242"
    id="text256"
    class="fil12 fnt1"
    y="17834.805"
    x="14071.883"><tspan
-     style="-inkscape-font-specification:'DejaVu Sans Mono';font-family:'DejaVu Sans Mono';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal"
+     style="-inkscape-font-specification:Arial;font-family:Arial;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal"
      id="tspan416">Южно-Сахалинск</tspan></text>
+
 <rect
    style="fill:#2b2a29;stroke:#2b2a29;stroke-width:20;stroke-miterlimit:22.92560005"
    id="rect258"

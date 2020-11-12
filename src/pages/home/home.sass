@@ -29,16 +29,19 @@
       margin: 5px 0
 
   .top-cover
-    display: flex
-    align-items: center
-    justify-content: center
-    color: white
-    text-shadow: 1px 1px 2px black, 0 0 1em black
-    font-size: 2em
+    h1
+      font-size: 3em
     @media screen and (min-width: $min-width)
+
+      display: flex
+      align-items: center
+      justify-content: space-around
+      text-align: right
+      color: white
+      text-shadow: 1px 1px 2px black, 0 0 1em black
       height: 300px
       background-color: #0c5460
       background-image: url("arctic.jpg")
       background-repeat: no-repeat
       background-size: cover
-      background-position: 0 -600px
+

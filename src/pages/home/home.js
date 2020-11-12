@@ -6,7 +6,7 @@ import documents from "pages/home/text-documents";
 import comments from "pages/home/text-comments";
 import Partners from "pages/home/Partners";
 import Documents from "pages/documents/Documents";
-import Territory from "pages/home/Territory";
+import Regions from "pages/home/Regions";
 /*
 https://academia.interfax.ru/ru/news/articles/2900/
 https://nauka.tass.ru/nauka/6770258
@@ -20,12 +20,13 @@ export default function Home(props) {
 
     return <div className="home">
         <div className="top-cover">
+            <div></div>
             <h1>НОЦ "СЕВЕР" <small>Территория устойчивого развития</small>
             </h1>
         </div>
         <div className="content">
-            <Territory/>
-            <Partners/>
+            <Regions/>
+            {/*<Partners/>*/}
 
 
             <PostList {...props}/>
