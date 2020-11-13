@@ -26,7 +26,7 @@ export default function Home(props) {
         </div>
         <div className="content">
             <Regions/>
-            {/*<Partners/>*/}
+            <Partners/>
 
 
             <PostList {...props}/>

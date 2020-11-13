@@ -45,7 +45,6 @@
   },
   "scripts": {
     "start": "BROWSER=none react-scripts start",
-    "start2": "BROWSER=none node --inspect node_modules/react-scripts/scripts/start.js",
     "server": "NODE_PATH=. nodemon -r esm server/server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
