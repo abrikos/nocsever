@@ -20,7 +20,7 @@ export default function Home(props) {
 
     return <div className="home">
         <div className="top-cover">
-            <div></div>
+            <div><img src="/logo.svg" alt="Логотип"/> </div>
             <h1>НОЦ "СЕВЕР" <small>Территория устойчивого развития</small>
             </h1>
         </div>
