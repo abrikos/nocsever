@@ -21,8 +21,7 @@ export default function Home(props) {
     return <div className="home">
         <div className="top-cover">
             <div><img src="/logo.svg" alt="Логотип"/> </div>
-            <h1>НОЦ "СЕВЕР" <small>Территория устойчивого развития</small>
-            </h1>
+            <h1>НОЦ "Север: территория устойчивого развития"</h1>
         </div>
         <div className="content">
             <Regions/>
