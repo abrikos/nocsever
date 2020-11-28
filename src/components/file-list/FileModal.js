@@ -23,7 +23,7 @@ export default function FileModal(props) {
     function submitImageAttr(e) {
         e.preventDefault()
         const form = props.store.formToObject(e.target);
-        Store.api(`/file/${image.id}/update`, form)
+        props.store.api(`/file/${image.id}/update`, form)
             .then(props.onChange)
     }
 

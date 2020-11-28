@@ -20,7 +20,7 @@ export default function AdminNews(props) {
     }
 
     function create() {
-        Store.api('/post/create')
+        props.store.api('/post/create')
             .then(post => navigate(`/admin/news/${post.id}/update`))
     }
 

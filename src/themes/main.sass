@@ -1,4 +1,4 @@
-@import "src/components/themes/params"
+@import "params"
 @import url('https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&display=swap&subset=cyrillic,cyrillic-ext,latin-ext')
 $pt-font: 'PT Sans'
 $roboto-slab: 'Roboto Slab', serif
@@ -11,6 +11,9 @@ $main-font: $roboto-slab
 html
   body
     font-family: $pt-font
+    a:hover
+      text-decoration: none
+
     .img-preview
       max-width: 100%
       max-height: 100%

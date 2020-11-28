@@ -1,6 +1,6 @@
 import React from "react";
-import "components/themes/main.sass"
-import "components/themes/top-menu/theme-horizontal.sass"
+import "themes/main.sass"
+import "themes/top-menu/theme-horizontal.sass"
 import logo from "./noc.svg"
 import logoAcademy from "images/logo-text.svg"
 import top from "./top.png"

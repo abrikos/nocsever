@@ -1,11 +1,12 @@
 import {useRoutes} from "hookrouter";
 import routes from "Routes";
-import ThemeMain from "components/themes/main/ThemeMain";
-import ThemeAdmin from "components/themes/admin/ThemeAdmin";
+import ThemeMain from "themes/main/ThemeMain";
+import ThemeAdmin from "themes/admin/ThemeAdmin";
 import React, {useEffect, useState} from "react";
-import Store from "Store";
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import axios from "axios";
+import f2o from "form-to-object"
+import "themes/main.sass"
 
 export default function Application() {
     const [authenticatedUser, setAuthUser] = useState(false);
@@ -14,7 +15,7 @@ export default function Application() {
         //let isSubscribed = true
         //startWebSocket();
         //setInterval(checkWebsocket, 1000);
-        Store.getUser()
+        store.getUser()
             .then(setAuthUser)
 
         //return () => isSubscribed = false;
@@ -23,6 +24,49 @@ export default function Application() {
 
     const store = {
         authenticatedUser,
+        async postData(path = '', data = {}) {
+            const label = new Date().valueOf() + ' - POST ' + path;
+            console.time(label)
+            const url = '/api' + path;
+            return new Promise((resolve, reject) => {
+                axios.post(url, data)
+                    .then(res => {
+                        resolve(res.data)
+                        console.timeEnd(label)
+                    })
+                    .catch(err => {
+                        reject({error: err.response.status, message: err.response.data.message || err.response.statusText})
+                    })
+
+            })
+        },
+
+        async api(path, data) {
+            return await this.postData(path, data)
+        },
+
+        logOut() {
+            setAuthUser(null)
+            this.api('/logout').then(()=>window.history.back())
+        },
+
+        formToObject(form){
+            return f2o(form)
+        },
+
+        logIn() {
+            this.getUser()
+                .then(setAuthUser)
+        },
+
+        async getUser() {
+            const user = await this.postData('/user/authenticated');
+            if (!user.error) {
+                return user;
+            } else {
+                console.warn(user.error)
+            }
+        },
     }
 
     let routeResult = useRoutes(routes(store));

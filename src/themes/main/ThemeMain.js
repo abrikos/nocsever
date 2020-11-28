@@ -1,7 +1,6 @@
 import React from "react";
-import "components/themes/main.sass"
-import "components/themes/main/theme-main.sass"
-import MenuTop from "components/themes/main/MenuTop";
+import "./theme-main.sass"
+import MenuTop from "themes/main/MenuTop";
 
 export default function ThemeMain(props) {
 

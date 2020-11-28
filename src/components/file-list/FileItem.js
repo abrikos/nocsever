@@ -19,7 +19,7 @@ export default function FileItem(props) {
 
     function deleteImage() {
         if (!window.confirm('Удалить изображение?')) return;
-        Store.api('/file/delete/' + image.id)
+        props.store.api('/file/delete/' + image.id)
             .then(() => {
                 setImage(null)
             })

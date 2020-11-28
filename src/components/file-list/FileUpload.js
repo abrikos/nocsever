@@ -32,7 +32,7 @@ export default function FileUpload(props) {
             formData.append('file', file);
             formData.append('tokens', tokens);
             try {
-                const image = await Store.api('/file/upload/', formData);
+                const image = await props.store.api('/file/upload/', formData);
                 uploaded.push(image);
             } catch (e) {
                 declined.push({error: e.message, file})

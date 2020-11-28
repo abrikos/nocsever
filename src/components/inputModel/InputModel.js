@@ -24,7 +24,7 @@ export default function InputModel(props) {
         const filter = {order: {}}
         filter.sort = props.field.options.sort;
         console.log(props.field.options.ref.toLowerCase(), filter)
-        Store.api(`/${props.field.options.ref.toLowerCase()}/list`, filter)
+        props.store.api(`/${props.field.options.ref.toLowerCase()}/list`, filter)
             .then(res => setList(res.list))
             .catch(console.error)
     }

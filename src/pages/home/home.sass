@@ -1,4 +1,4 @@
-@import "src/components/themes/params"
+@import "src/themes/params"
 
 .home
   .sc-partners
@@ -25,14 +25,19 @@
 
   .post-list
     .img-wrapper
-      height: 130px
+      height: 30px
       overflow: hidden
       margin: 5px 0
 
   .top-cover
-    background-image: url("arctic.jpeg")
-    color: white
-    text-shadow: 1px 1px 2px black, 0 0 1em black
+
+    //background-position: 0 -100px
+    background-repeat: no-repeat
+    //background-size: contain
+    @media screen and (min-width: $min-width)
+      background-image: url("covers/aurora.jpg")
+      color: white
+      text-shadow: 1px 1px 2px black, 0 0 1em black
     img
       width: 210px
       box-shadow: 5px 5px 23px 5px rgba(0,0,0,0.68)
@@ -44,10 +49,10 @@
       text-align: center
     @media screen and (min-width: $min-width)
       display: flex
+      flex-direction: column
       align-items: center
-      justify-content: space-around
-      text-align: right
-      height: 300px
+      justify-content: center
+      height: 500px
       background-color: #0c5460
       background-repeat: no-repeat
       background-size: cover

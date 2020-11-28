@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import Store from "Store"
 import MyBreadCrumb from "components/MyBreadCrumb";
 import ErrorPage from "components/service/ErrorPage";
 import "./cabinet.sass"
@@ -10,7 +9,7 @@ export default function Cabinet(props) {
     useEffect(loadUser, []);
 
     function loadUser() {
-        Store.api('/post/999/view')
+        props.store.api('/post/999/view')
             .then(d => {
                 console.log('zzzzzzzzzzzz', d)
                 setUser(d)

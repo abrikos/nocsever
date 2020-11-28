@@ -4,9 +4,9 @@ import React from "react";
 export default function LoginFormGoogle(props) {
     //const [user, setUser] = useState()
     const responseGoogle = (response) => {
-        Store.api(`/login/google`, response)
+        props.store.api(`/login/google`, response)
             .then(() => {
-                props.store.login()
+                props.store.logIn()
                 //.then(setUser)
             })
     }

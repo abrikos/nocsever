@@ -1,7 +1,6 @@
 import React from "react";
-import MenuTop from "components/themes/main/MenuTop";
-import "components/themes/main.sass"
-import "components/themes/admin/theme-admin.sass"
+import MenuTop from "themes/main/MenuTop";
+import "./theme-admin.sass"
 
 export default function (props) {
     return <div className="container-fluid bg-light">

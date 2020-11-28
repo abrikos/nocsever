@@ -7,7 +7,7 @@ export default function AdminPostFromUrl(props) {
     function submit(e) {
         e.preventDefault()
         const form = props.store.formToObject(e.target)
-        Store.api('/post/method/fromUrl', form)
+        props.store.api('/post/method/fromUrl', form)
             .then(post => navigate(post.adminLink))
     }
 

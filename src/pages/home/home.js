@@ -7,6 +7,7 @@ import comments from "pages/home/text-comments";
 import Partners from "pages/home/Partners";
 import Documents from "pages/documents/Documents";
 import Regions from "pages/home/Regions";
+import Map from "pages/home/Map";
 /*
 https://academia.interfax.ru/ru/news/articles/2900/
 https://nauka.tass.ru/nauka/6770258
@@ -24,11 +25,13 @@ export default function Home(props) {
             <h1>НОЦ "Север: территория устойчивого развития"</h1>
         </div>
         <div className="content">
-            <Regions/>
+            <PostList {...props}/>
+            <Map/>
+            {/*<Regions/>*/}
             {/*<Partners/>*/}
 
 
-            <PostList {...props}/>
+
 
             <div className="comments">
                 <h2>Отзывы</h2>

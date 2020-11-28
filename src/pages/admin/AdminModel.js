@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from "react";
-import Store from "Store"
 import {Button, Form} from "react-bootstrap";
 import {A, navigate} from "hookrouter";
 import FileUpload from "components/file-list/FileUpload";
@@ -22,7 +21,7 @@ export default function AdminModel(props) {
     useEffect(init, [props, modelName]);
 
     function init() {
-        Store.api(`/${modelName}/schema`)
+        props.store.api(`/${modelName}/schema`)
             .then(s => {
                 setModel(null)
                 setSchema(s);
@@ -32,20 +31,20 @@ export default function AdminModel(props) {
                 f.order = s.formOptions.listOrder;
                 console.log(f)
                 getList(f);
-                if (props.id) Store.api(`/${modelName}/${props.id}/view`).then(setModel)
+                if (props.id) props.store.api(`/${modelName}/${props.id}/view`).then(setModel)
             })
     }
 
     function getList(f) {
         setFilter(f)
-        Store.api(`/${modelName}/list`, f).then(res => {
+        props.store.api(`/${modelName}/list`, f).then(res => {
             setList(res.list)
             setTotalCount(res.count)
         })
     }
 
     function create() {
-        Store.api(`/admin/${modelName}/create`)
+        props.store.api(`/admin/${modelName}/create`)
             .then(model => {
                 navigate(model.adminLink)
             })
@@ -64,7 +63,7 @@ export default function AdminModel(props) {
         setErrors({});
         if (model.id) {
             console.log(form)
-            Store.api(`/admin/${modelName}/${model.id}/update`, form)
+            props.store.api(`/admin/${modelName}/${model.id}/update`, form)
                 .then(() => {
                     getList(filter);
                     setEdited(false)
@@ -76,12 +75,12 @@ export default function AdminModel(props) {
     }
 
     function uploadDone(files) {
-        Store.api(`/admin/${modelName}/${model.id}/files/add`, {files})
+        props.store.api(`/admin/${modelName}/${model.id}/files/add`, {files})
             .then(setModel)
     }
 
     function setPreview(img) {
-        Store.api(`/admin/${modelName}/${model.id}/file-preview/${img.id}`)
+        props.store.api(`/admin/${modelName}/${model.id}/file-preview/${img.id}`)
             .then(setModel)
     }
 
@@ -104,7 +103,7 @@ export default function AdminModel(props) {
 
     function deleteModel() {
         if (!window.confirm(`Удалить ${schema.formOptions.label}?`)) return;
-        Store.api(`/admin/${modelName}/${model.id}/delete`).then(() => {
+        props.store.api(`/admin/${modelName}/${model.id}/delete`).then(() => {
             setModel(null)
             getList(filter)
         })

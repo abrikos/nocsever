@@ -20,6 +20,7 @@
     "esm": "^3.2.25",
     "express-fileupload": "^1.2.0",
     "express-session": "^1.17.1",
+    "form-to-object": "^6.0.0",
     "hookrouter": "^1.2.3",
     "md5": "^2.3.0",
     "moment": "^2.29.1",
