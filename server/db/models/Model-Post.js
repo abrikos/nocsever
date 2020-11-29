@@ -18,9 +18,9 @@ const modelSchema = new Schema({
         published: {type: Boolean, label: 'Опубликовано'},
         views: {type: Number, default: 0},
         user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-        files: [{type: mongoose.Schema.Types.ObjectId, ref: 'file'}],
-        file: {type: mongoose.Schema.Types.ObjectId, ref: 'file'},
-        preview: {type: mongoose.Schema.Types.ObjectId, ref: 'file'},
+        files: [{type: mongoose.Schema.Types.ObjectId, ref: 'File'}],
+        file: {type: mongoose.Schema.Types.ObjectId, ref: 'File'},
+        preview: {type: mongoose.Schema.Types.ObjectId, ref: 'File'},
 
     },
     {
@@ -31,7 +31,7 @@ const modelSchema = new Schema({
         toJSON: {virtuals: true}
     });
 
-modelSchema.statics.population = ['image', 'images', 'preview'];
+modelSchema.statics.population = ['file', 'files', 'preview'];
 
 modelSchema.formOptions = {
     label: 'Новости',
@@ -41,7 +41,8 @@ modelSchema.formOptions = {
 }
 
 modelSchema.statics.fromUrl = async function ({url}, user) {
-    const r = this.urlMeta(url)
+    const r = await this.urlMeta(url)
+    console.log(r)
     return await this.create({user, imgUrl: r.ogImage.url, header: r.ogTitle, text: r.ogDescription, published: true, url})
 }
 
@@ -61,8 +62,9 @@ modelSchema.virtual('date')
 
 modelSchema.virtual('previewPath')
     .get(function () {
-        const image = this.image || this.preview;
-        return image ? image.path : this.imgUrl || '/noImage.png'
+        console.log(this.file)
+        const image = this.file || this.preview;
+        return this.file ? this.file.path : this.imgUrl || '/noImage.png'
     });
 
 modelSchema.virtual('adminLink')

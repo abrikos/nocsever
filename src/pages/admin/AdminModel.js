@@ -15,7 +15,6 @@ export default function AdminModel(props) {
     const [model, setModel] = useState();
     const [errors, setErrors] = useState({});
     const [filter, setFilter] = useState({});
-    console.log(props)
     const modelName = props.control;
 
     useEffect(init, [props, modelName]);
@@ -109,6 +108,7 @@ export default function AdminModel(props) {
         })
     }
 
+    model && console.log(model.file)
     if (!schema) return <div></div>;
     return <div key={modelName}>
         {!model && <div>
@@ -156,7 +156,7 @@ export default function AdminModel(props) {
                     {model.files && <FileList
                         key={model.files.length}
                         setPreview={setPreview}
-                        files={model.files.filter(i => i.isImage)}
+                        files={model.files}
                         editable={true}
                         store={props.store}/>}
                 </div>

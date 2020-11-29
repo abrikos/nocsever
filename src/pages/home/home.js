@@ -25,8 +25,9 @@ export default function Home(props) {
             <h1>НОЦ "Север: территория устойчивого развития"</h1>
         </div>
         <div className="content">
-            <Partners/>
             <PostList {...props}/>
+            <Partners/>
+
             <Map/>
             {/*<Regions/>*/}
             {/*<Partners/>*/}

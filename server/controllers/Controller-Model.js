@@ -222,7 +222,7 @@ module.exports.controller = function (app) {
         if (!Mongoose.Types.ObjectId.isValid(req.params.id)) return res.send(app.locals.sendError({error: 404, message: 'Wrong Id'}))
         Mongoose[req.params.model].findById(req.params.id)
             .then(model => {
-                model.photo = req.params.file;
+                model.file = req.params.file;
                 model.save()
                     .then(model1 => {
                         model1.populate(Mongoose[req.params.model].population).execPopulate((e, m) => {

@@ -18,7 +18,7 @@ export default function PostLIst(props) {
         const f = filter ? Object.assign(filter, {}) : {where: {}};
         if (!f.where) f.where = {};
         f.order = {createdAt: -1};
-        f.limit = 12;
+        f.limit = 4;
         f.skip = 0;
         if (!props.isAdmin) f.where.published = true;
         setFilter(f);
@@ -35,9 +35,10 @@ export default function PostLIst(props) {
 
     if (!posts) return <Loader/>
     return <div className="post-list">
-        <h2>Новости</h2>
-        <div className="d-sm-flex flex-wrap">
+
+        <div className="d-sm-flex flex-wrap justify-content-center">
             {posts.map(p => <div key={p.id} className="post-small">
+                {console.log(p.header, p)}
                 <div className="post-container">
                     <div className="image-wrapper" style={{backgroundImage: `url(${p.previewPath})`}}>
                         <div className="post-link">
