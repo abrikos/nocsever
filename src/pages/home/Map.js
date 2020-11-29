@@ -26,7 +26,7 @@ export default function Map() {
                 </svg>
             </div>
             <div className="col-6">
-                Общая площадь {data.reduce((a, b) => a + (b.square || 0), 0).toLocaleString('ru')} км<sup>2</sup>
+                Общая площадь регионов участников {data.reduce((a, b) => a + (b.square || 0), 0).toLocaleString('ru')} км<sup>2</sup>
                 {region && region.name && <div>
                     <h3>{region.name}</h3>
                     Площадь: {region.square.toLocaleString('ru')} км<sup>2</sup>
