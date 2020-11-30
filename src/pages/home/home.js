@@ -34,16 +34,17 @@ export default function Home(props) {
 
 
 
-
+            <hr/>
             <div className="comments">
-                <h2>Отзывы</h2>
+
                 <div className="d-sm-flex justify-content-around">
                     {comments.map((c, i) => <div className="comment" key={i}>
                         <div className="img-wrapper">
                             <img src={c.photo} alt={c.name}/>
                         </div>
                         <h4>{c.name} <small><i>{c.title}</i></small></h4>
-                        <div>{c.text}</div>
+                        {/*<div>{c.text}</div>*/}
+                        <h3><a href={c.pdf} target="_blank">Указ</a></h3>
                     </div>)}
                 </div>
             </div>
