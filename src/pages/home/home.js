@@ -24,8 +24,8 @@ export default function Home(props) {
             <div><img src="/logo.svg" alt="Логотип"/> </div>
             <h1>НОЦ "Север: территория устойчивого развития"</h1>
         </div>
-        <div className="content">
-            <PostList {...props}/>
+        <div className="contentX">
+            <div className="py-sm-5"><PostList filter={{limit:20}} {...props}/></div>
             <Partners/>
 
             <Map/>
@@ -37,7 +37,7 @@ export default function Home(props) {
             <hr/>
             <div className="comments">
 
-                <div className="d-sm-flex justify-content-around">
+                <div className="d-sm-flex justify-content-center">
                     {comments.map((c, i) => <div className="comment" key={i}>
                         <div className="img-wrapper">
                             <img src={c.photo} alt={c.name}/>
