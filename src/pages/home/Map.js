@@ -11,7 +11,7 @@ export default function Map() {
         });*/
     }, [])
 
-    return <div className="d-none d-sm-flex">
+    return <div className="d-none d-sm-block">
         <h2>Регионы</h2>
         <div className="text-center">Общая площадь регионов участников {data.reduce((a, b) => a + (b.square || 0), 0).toLocaleString('ru')} км<sup>2</sup></div>
         <div className="row">
@@ -24,7 +24,7 @@ export default function Map() {
                         {`.region {opacity:.5;}`}
                         {`.disabled {opacity:.5;}`}
                     </style>
-                    {data.map(d => <g key={d.id} id={d.id} className={d.noTransform ? "disabled" : "region"} transform={d.transform} onMouseOver={() => setRegion(d)} onMouseOut={()=>setRegion(null)}>
+                    {data.map(d => <g key={d.id} id={d.id} className={d.noTransform ? "disabled" : "region"} transform={d.transform} onMouseOver={() => setRegion(d.name ? d : null)} onMouseOut={() => setRegion(null)}>
                         {d.path.map((p, i) => <path key={i} d={p} fill={d.fill}/>)}
                     </g>)}
                 </svg>
@@ -33,12 +33,13 @@ export default function Map() {
 
                 {region ? region.name && <div>
 
-                    <h3>{region.name}</h3>
+
                     <img src={region.emblem} height={300} className="float-left m-4"/>
+                    <h3 className="text-center">{region.name}</h3>
                     <MarkDown source={region.about}/>
                     Площадь: {region.square.toLocaleString('ru')} км<sup>2</sup>
-                </div>:<div>
-                    {data.map(d=><h3 key={d.id}>{d.name}</h3>)}
+                </div> : <div>
+                    {data.map(d => <h3 key={d.id}>{d.name}</h3>)}
                 </div>}
             </div>
 
