@@ -21,6 +21,10 @@ export default function Direction(props) {
             <ul>
                 {t.targets.map((d, i) => <li key={i}>{d}</li>)}
             </ul>
+            <h4>Портфели</h4>
+            <MarkDown source={t.portfolio}/>
+            <h4>Социально-экономический эффект</h4>
+            <MarkDown source={t.effect}/>
             <div>
                 <div><MarkDown source={t.text}/></div>
             </div>
