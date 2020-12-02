@@ -9,8 +9,8 @@ export default function DirectionList() {
         const t = directions[p.field]
         return <div className="direction-item">
             <div className="dir-wrap">
-                <div>
-                    <img src={t.image} className="img-fluid" alt={t.title}/>
+                <div className="text-center">
+                    <img src={t.image} className="img-fluid d-block m-auto" alt={t.title}/>
                     <A href={`/directions/${p.field}`}>{t.title}</A>
                 </div>
             </div>
@@ -18,7 +18,7 @@ export default function DirectionList() {
     }
 
 
-    return <div className="content">
+    return <div className="">
         <h2>Направления</h2>
         <div className="directions-list d-sm-flex">
             {Object.keys(directions).map((k) => <DrawDirectionShort key={k} field={k}/>)}
