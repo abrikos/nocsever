@@ -10,8 +10,9 @@ export default function DirectionList() {
         return <div className="direction-item">
             <div className="dir-wrap">
                 <div className="text-center">
+                    <A href={`/directions/${p.field}`}>
                     <img src={t.image} className="img-fluid d-block m-auto" alt={t.title}/>
-                    <A href={`/directions/${p.field}`}>{t.title}</A>
+                    {t.title}</A>
                 </div>
             </div>
         </div>
