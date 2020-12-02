@@ -20,7 +20,7 @@ export default function DirectionList() {
 
     return <div className="content">
         <h2>Направления</h2>
-        <div className="directions-list">
+        <div className="directions-list d-sm-flex">
             {Object.keys(directions).map((k) => <DrawDirectionShort key={k} field={k}/>)}
         </div>
     </div>
