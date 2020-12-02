@@ -62,7 +62,6 @@ modelSchema.virtual('date')
 
 modelSchema.virtual('previewPath')
     .get(function () {
-        console.log(this.file)
         const image = this.file || this.preview;
         return this.file ? this.file.path : this.imgUrl || '/noImage.png'
     });
